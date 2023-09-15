@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { For, createSignal, onCleanup, createEffect } from "solid-js";
 import RenamePatternInput from "./RenamePatternInput";
@@ -39,12 +40,14 @@ function App() {
 
 
   return (
-    <div class="container">
-      <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} />
-      <span>{regex()} to {renamePattern()}</span>
-      <For each={files()} fallback={<div>No items</div>}>
-        {(file, index) => <div data-index={index()}>{file}</div>}
-      </For>
+    <div class="container p-2">
+      <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} class="p-2" />
+      <div class="p-2 text-center">{regex()} to {renamePattern()}</div>
+      <div class="p-2">
+        <For each={files()} fallback={<div>No items</div>}>
+          {(file, index) => <div data-index={index()}>{file}</div>}
+        </For>
+      </div>
     </div>
   );
 }
