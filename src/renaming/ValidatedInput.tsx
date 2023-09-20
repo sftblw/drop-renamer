@@ -1,4 +1,4 @@
-import { JSX, Setter, createEffect, createSignal, mergeProps, splitProps } from "solid-js";
+import { Accessor, JSX, createEffect, createMemo, createSignal, mergeProps, splitProps } from "solid-js";
 
 interface PatternProps {
     value?: string,
@@ -17,14 +17,16 @@ export default function ValidatedInput(props: OptionalPatternProps): JSX.Element
         value: "",
         validator: () => true,
         validClass: "",
-        invalidClass: "bg-red-100",
-    }
+        invalidClass: "bg-red-100"
+    };
+    
     let mergedProps = mergeProps(defaultProps, props);
-    let [internalProps, externalProps] = splitProps(mergedProps, ["value", "output", "validator", "validClass", "invalidClass"]);
+    let [internalProps, externalProps] = splitProps(mergedProps, ["value", "onInput", "output", "validator", "validClass", "invalidClass"]);
 
-    let [value, setValue] = createSignal(mergedProps.value);
-
-    const isValidProp = () => internalProps.validator(value());
+    let [value, setValue] = createSignal(internalProps.value);
+    const isValidProp = createMemo(() => internalProps.validator(value()));
+    createEffect(() => internalProps.onInput(value()))
+    
     const classList = () => {
         const native_class_list = isValidProp() ? internalProps.validClass : internalProps.invalidClass;
         return [native_class_list, externalProps.class ?? ""].join(" ").trim();
@@ -32,6 +34,7 @@ export default function ValidatedInput(props: OptionalPatternProps): JSX.Element
 
     return (
         <input
+            value={value()}
             onInput={ev => setValue(ev.target.value)}
             class={classList()}
         />

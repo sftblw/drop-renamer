@@ -18,7 +18,15 @@
         "open": true
       },
       "fs": {
-        "renameFile": true
+        "renameFile": true,
+        "createDir": true,
+        "readDir": true,
+        "readFile": true,
+        "writeFile": true,
+        "scope": ["$APPCONFIG", "$APPCONFIG/*", "*"]
+      },
+      "path": {
+        "all": true
       }
     },
     "bundle": {

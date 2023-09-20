@@ -41,6 +41,7 @@ function registerFileDropEvent() {
 
 export default function Renamer(): JSX.Element {
     createRenderEffect(registerFileDropEvent);
+
     return (
         <>
             <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} class="p-2" />
