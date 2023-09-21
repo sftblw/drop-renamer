@@ -1,7 +1,6 @@
-import { JSX, Setter, createEffect, createMemo, createSignal } from "solid-js";
+import { JSX, Setter, createEffect } from "solid-js";
 import ValidatedInput from "./ValidatedInput";
-import settingsManager from "../settings_manager";
-import { debounce } from "@solid-primitives/scheduled";
+import { createSettingsSignal } from "../settings_signal";
 
 interface RenamePattern {
     onRegexChanged: Setter<string>,
@@ -9,28 +8,14 @@ interface RenamePattern {
     [key: string]: any
 }
 
+
 function RenamePatternInput(props: RenamePattern): JSX.Element {
     // // regex
-    const [regex, setRegex] = createSignal('');
-
+    const [regex, setRegex] = createSettingsSignal('input.lastRegex', 250, '');
     createEffect(() => props.onRegexChanged(regex()));
 
-    settingsManager.get('input.lastRegex').then((value) => {
-        console.log("afff" + value)
-        if (value != null) { setRegex(value); }
-    });
-
-    var i = 0;
-    const regexSaveDebounce = debounce((regex_value: string) => {
-        console.log(regex_value + (i++));
-        settingsManager.set('input.lastRegex', regex_value);
-        settingsManager.syncCache();
-        
-    }, 250);
-    createMemo(() => {
-        console.log("regex changed: " + regex());
-        regexSaveDebounce(regex());
-    });
+    const [pattern, setPattern] = createSettingsSignal('input.lastRenamePattern', 250, '');
+    createEffect(() => props.onRenamePatternChanged(pattern()));
 
     const input_classes = "font-size-7";
 
@@ -42,10 +27,14 @@ function RenamePatternInput(props: RenamePattern): JSX.Element {
                 onInput={ (value) => setRegex(value) }
                 validator={(value) => { try { new RegExp(value) } catch { return false; } return true; }}
             />
-            {/* <input   type="text" onInput={(ev) => props.onRegexChanged(ev.target.value)} /> */}
+            
 
             <label for="rename_pattern">rename pattern</label>
-            <input id="rename_pattern" class={input_classes} type="text" onInput={(ev) => props.onRenamePatternChanged(ev.target.value)} />
+            <ValidatedInput id="rename_pattern" class={input_classes}
+                value={pattern()}
+                onInput={ (value) => setPattern(value) }
+                validator={(value) => { return true }}
+            />
         </div>
     );
 }

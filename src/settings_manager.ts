@@ -1,18 +1,18 @@
 
 import { SettingsManager } from 'tauri-settings';
 
-export type SettingsScheme = {
+export type DropRenamerSettingsSchema = {
     input: {
         lastRegex: string,
-        lastPattern: string
+        lastRenamePattern: string
     }
 }
 
-const settingsManager = new SettingsManager<SettingsScheme>(
+const settingsManager = new SettingsManager<DropRenamerSettingsSchema>(
   { // defaults
     input: {
         lastRegex: '^.*$',
-        lastPattern: '$1'
+        lastRenamePattern: '$1'
     }
   },
   {
