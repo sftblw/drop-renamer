@@ -23,9 +23,16 @@ export default function ValidatedInput(props: OptionalPatternProps): JSX.Element
     let mergedProps = mergeProps(defaultProps, props);
     let [internalProps, externalProps] = splitProps(mergedProps, ["value", "onInput", "output", "validator", "validClass", "invalidClass"]);
 
-    let [value, setValue] = createSignal(internalProps.value);
+    let [value, setValue] = createSignal('');
+
+    // initial property set, property reaction
+    createMemo(() => setValue(internalProps.value));
+
+    // validation
     const isValidProp = createMemo(() => internalProps.validator(value()));
-    createEffect(() => internalProps.onInput(value()))
+
+    // return signal
+    createEffect(() => internalProps.onInput(value()));
     
     const classList = () => {
         const native_class_list = isValidProp() ? internalProps.validClass : internalProps.invalidClass;
