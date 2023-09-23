@@ -4,7 +4,7 @@ Work in progress
 
 Simple app for: drag-drop files to rename with some regex pattern.
 
-remake of [dropRenamer](https://github.com/@sftblw)
+remake of [dropReplacer](https://github.com/sftblw/dropReplacer)
 
 started from tauri's `Tauri + Solid + Typescript` template.
 
