@@ -1,8 +1,12 @@
 import { useLocation, A } from "@solidjs/router";
+import { JSX } from "solid-js";
+
 import './NavButtonLink.scss';
 
 interface NavLinkProps {
     target_path: string;
+    icon_class: string;
+    children?: JSX.Element;
 }
 
 export function NavButtonLink(props: NavLinkProps) {
@@ -12,8 +16,8 @@ export function NavButtonLink(props: NavLinkProps) {
 
     return (
         <A href={href()} class={("nav-button " + (is_current_path() ? "nav-button-current" : "")).trim()}>
-            <span class="i-pajamas-settings inline-block"></span>
-            <span>settings</span>
+            <span class={props.icon_class}></span>
+            <span>{props.children}</span>
         </A>
     );
 }

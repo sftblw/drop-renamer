@@ -1,5 +1,5 @@
 import { JSX } from "solid-js";
 
-export default function Settings(): JSX.Element {
+export default function SettingsPage(): JSX.Element {
     return (<>settings page</>);
 }
