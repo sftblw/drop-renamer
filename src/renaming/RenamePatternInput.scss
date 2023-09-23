@@ -7,8 +7,9 @@
     }
 
     label {
-        --uno: font-size-5;
+        --uno: font-size-5 font-medium;
         --uno: mt-1 mb-1;
+        user-select: none;
     }
 }
 

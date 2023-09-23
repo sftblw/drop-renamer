@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.nav-button {
+    --uno: font-size-5 no-underline;
+    --uno: flex items-center;
+    --uno: gap-1;
+    --uno: p-2 b-rounded-2;
+}
+
+.nav-button:hover {
+    --uno: font-size-5 no-underline;
+}
+
+.nav-button > * {
+    --uno: block;
+}
+
+.nav-button {
+    color: $theme-black-1;
+}
+.nav-button-current {
+    color: $theme-white-1;
+    background-color: $theme-black-1;
+}

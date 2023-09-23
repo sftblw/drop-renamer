@@ -1,19 +1,16 @@
 
 import "./App.scss";
-import { A, Route, Router, Routes, useLocation } from "@solidjs/router";
+import { Route, Router, Routes } from "@solidjs/router";
 import Renamer from "./renaming/Renamer";
 import { JSX, lazy } from "solid-js";
+import { NavButtonLink } from "./NavButtonLink";
 
 function RoutedApp(): JSX.Element {
-  const location = useLocation();
   return (
     <div class="app-container">
       <nav class="app-nav">
         <h1>drop-renamer</h1>
-        <A href={location.pathname !== "/settings" ? "/settings" : "/"} class="nav-button">
-          <span class="i-pajamas-settings inline-block"></span>
-          <span>settings</span>
-        </A>
+        <NavButtonLink target_path="/settings" />
       </nav>
       <div>
         <Routes>

@@ -1,23 +1,13 @@
 @import './variables.scss';
 
-.nav-button {
-    --uno: font-size-5 color-black no-underline;
-    --uno: flex items-center;
-    --uno: gap-1;
-}
-.nav-button:hover {
-    --uno: font-size-5 color-#555 no-underline;
-}
-.nav-button > * {
-    --uno: block;
-}
-
-* {
-    color: $theme-black-1;
-}
-
-h1, h2, h3, h4, h5, h6 {
+html {
     color: $theme-black-2;
+}
+
+h1, h2, h3, h4, h5, h6,
+label
+{
+    color: $theme-black-1;
 }
 
 input {
