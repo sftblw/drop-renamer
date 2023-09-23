@@ -1,7 +1,11 @@
 {
   "name": "drop-renamer",
   "version": "0.0.0",
-  "description": "",
+  "description": "Simple app for: drag-drop files to rename with some regex pattern.",
+  "author": {
+    "name": "sftblw", "email": "ccwpc@hanmail.net"
+  },
+  "private": true,
   "scripts": {
     "start": "vite",
     "dev": "vite",
