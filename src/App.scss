@@ -1,12 +1,24 @@
+@import './variables.scss';
+
 .app-container {
     --uno: flex flex-col;
-}
 
-.app-container > * {
-    --uno: p-2;
+    & > * {
+        --uno: p-2;
+    }
 }
 
 .app-nav {
-    --uno: flex flex-row justify-end;
+    --uno: flex flex-row justify-end items-center;
+    --uno: vertical-middle;
     --uno: shadow-md;
+    --uno: border-b-1 border-b-solid border-b-#ccc;
+    --uno: mb-2;
+
+    user-select: none;
+
+    h1 {
+        --uno: font-size-5 p-0 m-0;
+        --uno: flex-grow-1;
+    }
 }

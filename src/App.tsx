@@ -9,6 +9,7 @@ function RoutedApp(): JSX.Element {
   return (
     <div class="app-container">
       <nav class="app-nav">
+        <h1>drop-renamer</h1>
         <A href={location.pathname !== "/settings" ? "/settings" : "/"} class="nav-button">
           <span class="i-pajamas-settings inline-block"></span>
           <span>settings</span>
