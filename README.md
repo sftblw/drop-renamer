@@ -1,7 +1,27 @@
-# Tauri + Solid + Typescript
+# drop-renamer (WIP)
 
-This template should help get you started developing with Tauri, Solid and Typescript in Vite.
+Work in progress
 
-## Recommended IDE Setup
+Simple app for: drag-drop files to rename with some regex pattern.
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+remake of [dropRenamer](https://github.com/@sftblw)
+
+started from tauri's `Tauri + Solid + Typescript` template.
+
+## dev
+
+requires: nodejs, rust (cargo) installed
+
+1. npm i
+2. npm run tauri dev
+
+## TODO
+
+- [x] rename when files are dropped
+- [x] basic layout & styling
+- [ ] direct options
+  - [ ] include extensions
+  - [ ] rename instantly when dropped
+- [ ] rename items
+  - [ ] edit before rename
+- [ ] license thing: add MIT license, add dependencies notice

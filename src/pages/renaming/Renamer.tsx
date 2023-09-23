@@ -1,6 +1,6 @@
 import { JSX } from "solid-js/jsx-runtime";
 import RenamePatternInput from "./RenamePatternInput";
-import { For, createSignal, onCleanup, createEffect, createResource, createRenderEffect } from "solid-js";
+import { For, createSignal, onCleanup, createRenderEffect } from "solid-js";
 
 import { appWindow } from "@tauri-apps/api/window";
 import { fs } from "@tauri-apps/api";
