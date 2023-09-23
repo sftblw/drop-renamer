@@ -1,0 +1,14 @@
+.rename-pattern-input {
+    --uno: list-none m-0 p-0;
+    --uno: flex flex-col;
+    li {
+        --uno: flex flex-col;
+        --uno: mt-2;
+    }
+
+    label {
+        --uno: font-size-5;
+        --uno: mt-1 mb-1;
+    }
+}
+

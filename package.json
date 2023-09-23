@@ -11,14 +11,20 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@iconify-json/pajamas": "^1.1.32",
     "@solid-primitives/scheduled": "^1.4.1",
     "@solidjs/router": "^0.8.3",
     "@tauri-apps/api": "^1.4.0",
+    "@unocss/preset-icons": "^0.56.1",
+    "@unocss/preset-uno": "^0.56.1",
+    "@unocss/reset": "^0.56.1",
     "solid-js": "^1.7.8",
     "tauri-settings": "^0.3.4"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.4.0",
+    "@unocss/transformer-directives": "^0.56.1",
+    "sass": "^1.68.0",
     "typescript": "^5.0.2",
     "unocss": "^0.55.7",
     "vite": "^4.4.4",

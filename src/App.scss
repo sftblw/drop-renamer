@@ -1,0 +1,12 @@
+.app-container {
+    --uno: flex flex-col;
+}
+
+.app-container > * {
+    --uno: p-2;
+}
+
+.app-nav {
+    --uno: flex flex-row justify-end;
+    --uno: shadow-md;
+}

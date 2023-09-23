@@ -6,6 +6,8 @@ import { appWindow } from "@tauri-apps/api/window";
 import { fs } from "@tauri-apps/api";
 import { UnlistenFn } from "@tauri-apps/api/event";
 
+import './Renamer.scss';
+
 export let [files, setFiles] = createSignal([] as string[]);
 export let [dropped, setDropped] = createSignal(false);
 export const [regex, setRegex] = createSignal("");
@@ -44,8 +46,8 @@ export default function Renamer(): JSX.Element {
 
     return (
         <>
-            <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} class="p-2" />
-            <div class="p-2">
+            <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} />
+            <div class="mt-8">
                 <For each={files()} fallback={<div>No items</div>}>
                     {(file, index) => <div data-index={index()}>{file}</div>}
                 </For>

@@ -1,0 +1,11 @@
+.nav-button {
+    --uno: font-size-5 color-black no-underline;
+    --uno: flex items-center;
+    --uno: gap-1;
+}
+.nav-button:hover {
+    --uno: font-size-5 color-#555 no-underline;
+}
+.nav-button > * {
+    --uno: block;
+}
