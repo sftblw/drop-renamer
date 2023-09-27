@@ -11,7 +11,7 @@ export type DropRenamerSettingsSchema = {
 const settingsManager = new SettingsManager<DropRenamerSettingsSchema>(
   { // defaults
     input: {
-        lastRegex: '^.*$',
+        lastRegex: '^(.*)$',
         lastRenamePattern: '$1'
     }
   },
