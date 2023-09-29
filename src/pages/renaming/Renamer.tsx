@@ -65,7 +65,7 @@ export default function Renamer(): JSX.Element {
         <>
             <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} />
             <div class="mt-8">
-                <For each={files} fallback={<div>No items</div>}>
+                <For each={files} fallback={<div class="file-item-none">No items. Drop some files to rename.</div>}>
                     {(file, index) =>
                         <div data-index={index()} class="file-item">
                             <ul>

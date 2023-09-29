@@ -1,5 +1,5 @@
 import { JSX, Setter, createEffect } from "solid-js";
-import ValidatedInput from "./ValidatedInput";
+import ValidatedInput from "../../components/ValidatedInput";
 import { createSettingsSignal } from "../../settings_signal";
 import './RenamePatternInput.scss';
 

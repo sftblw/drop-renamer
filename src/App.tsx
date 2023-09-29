@@ -1,6 +1,6 @@
 
 import "./App.scss";
-import { Route, Router, Routes } from "@solidjs/router";
+import { A, Route, Router, Routes } from "@solidjs/router";
 import Renamer from "./pages/renaming/Renamer";
 import { JSX, lazy } from "solid-js";
 import { NavButtonLink } from "./components/NavButtonLink";
@@ -9,7 +9,7 @@ function RoutedApp(): JSX.Element {
   return (
     <div class="app-container">
       <nav class="app-nav">
-        <h1>drop-renamer</h1>
+        <h1><A href="/">drop-renamer</A></h1>
         <NavButtonLink target_path="/help" icon_class="i-pajamas-question">howto</NavButtonLink>
         <NavButtonLink target_path="/settings" icon_class="i-pajamas-settings">settings</NavButtonLink>
       </nav>
