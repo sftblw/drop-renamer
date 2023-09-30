@@ -22,6 +22,11 @@ const settingsManager = new SettingsManager<DropRenamerSettingsSchema>(
 
 // checks whether the settings file exists and created it if not
 // loads the settings if it exists
-settingsManager.initialize().then(() => {});
+try {
+  await settingsManager.initialize();
+} catch (ex: any) {
+  console.error('failed to load settings: ', ex);
+  await settingsManager.syncCache();
+}
 
 export default settingsManager;

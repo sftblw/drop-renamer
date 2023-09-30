@@ -1,6 +1,6 @@
 import { JSX } from "solid-js/jsx-runtime";
 import RenamePatternInput from "./RenamePatternInput";
-import { For, createSignal, onCleanup, createRenderEffect, createMemo } from "solid-js";
+import { For, createSignal, onCleanup, createRenderEffect } from "solid-js";
 
 import { appWindow } from "@tauri-apps/api/window";
 import { fs } from "@tauri-apps/api";
@@ -45,8 +45,8 @@ function registerFileDropEvent() {
                 setFiles(files);
             } break;
             case 'drop': {
-                renameFiles();
-                setFiles([]);
+                // renameFiles();
+                // setFiles([]);
             } break;
             case 'cancel': { setFiles([]); } break;
         }
@@ -63,6 +63,10 @@ export default function Renamer(): JSX.Element {
     return (
         <>
             <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} />
+
+            <div class="rename-options">
+                <label for="rename-instantly"><input type="checkbox" checked id="rename-instantly"/> rename instantly</label>
+            </div>
             <div class="mt-8">
                 <For each={files} fallback={<div class="file-item-none">No items. Drop some files to rename.</div>}>
                     {(file, index) =>

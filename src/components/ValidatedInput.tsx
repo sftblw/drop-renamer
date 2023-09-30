@@ -1,4 +1,4 @@
-import { Accessor, JSX, createEffect, createMemo, createSignal, mergeProps, splitProps } from "solid-js";
+import { JSX, createEffect, createMemo, createSignal, mergeProps, splitProps } from "solid-js";
 
 interface PatternProps {
     value?: string,
