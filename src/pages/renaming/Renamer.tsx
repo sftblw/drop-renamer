@@ -1,6 +1,6 @@
 import { JSX } from "solid-js/jsx-runtime";
 import RenamePatternInput from "./RenamePatternInput";
-import { For, createSignal, onCleanup, createRenderEffect } from "solid-js";
+import { For, createSignal, onCleanup, createRenderEffect, createMemo } from "solid-js";
 
 import { appWindow } from "@tauri-apps/api/window";
 import { fs } from "@tauri-apps/api";
@@ -13,11 +13,10 @@ import { PathItem } from "./path_item";
 
 export let [files, setFiles] = createStore([] as PathItem[]);
 
-export let [dropped, setDropped] = createSignal(false);
 export const [regex, setRegex] = createSignal("");
 export const [renamePattern, setRenamePattern] = createSignal("");
 
-const regExpObj = () => new RegExp(regex());
+const regExpObj = createMemo(() => new RegExp(regex()));
 
 function renameFiles(): void {
     let target_files = files;
@@ -67,8 +66,9 @@ export default function Renamer(): JSX.Element {
             {/* <div class="rename-options">
                 <label for="rename-instantly"><input type="checkbox" checked id="rename-instantly"/> rename instantly</label>
             </div> */}
+            
             <div class="mt-8">
-                <For each={files} fallback={<div class="file-item-none">No items. Drop some files to rename.</div>}>
+                <For each={files} fallback={<div class="file-item-none">No items.<br/>Drop some files to rename.</div>}>
                     {(file, index) =>
                         <div data-index={index()} class="file-item">
                             <ul>

@@ -3,6 +3,7 @@ import ValidatedInput from "../../components/ValidatedInput";
 import { createSettingsSignal } from "../../settings/settings_signal";
 import './RenamePatternInput.scss';
 
+
 interface RenamePattern {
     onRegexChanged: Setter<string>,
     onRenamePatternChanged: Setter<string>,
@@ -12,10 +13,10 @@ interface RenamePattern {
 
 function RenamePatternInput(props: RenamePattern): JSX.Element {
     // // regex
-    const [regex, setRegex] = createSettingsSignal('input.lastRegex', 250, '');
+    const [regex, setRegex] = createSettingsSignal('input.lastRegex', 250);
     createEffect(() => props.onRegexChanged(regex()));
 
-    const [pattern, setPattern] = createSettingsSignal('input.lastRenamePattern', 250, '');
+    const [pattern, setPattern] = createSettingsSignal('input.lastRenamePattern', 250);
     createEffect(() => props.onRenamePatternChanged(pattern()));
 
     const input_classes = "font-size-7";
