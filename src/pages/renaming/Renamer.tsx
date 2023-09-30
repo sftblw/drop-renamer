@@ -45,8 +45,8 @@ function registerFileDropEvent() {
                 setFiles(files);
             } break;
             case 'drop': {
-                // renameFiles();
-                // setFiles([]);
+                renameFiles();
+                setFiles([]);
             } break;
             case 'cancel': { setFiles([]); } break;
         }
@@ -64,9 +64,9 @@ export default function Renamer(): JSX.Element {
         <>
             <RenamePatternInput onRegexChanged={setRegex} onRenamePatternChanged={setRenamePattern} />
 
-            <div class="rename-options">
+            {/* <div class="rename-options">
                 <label for="rename-instantly"><input type="checkbox" checked id="rename-instantly"/> rename instantly</label>
-            </div>
+            </div> */}
             <div class="mt-8">
                 <For each={files} fallback={<div class="file-item-none">No items. Drop some files to rename.</div>}>
                     {(file, index) =>
