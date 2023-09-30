@@ -8,7 +8,7 @@ import { UnlistenFn } from "@tauri-apps/api/event";
 
 import './Renamer.scss';
 import { createStore } from "solid-js/store";
-import { PathItem, asFullPath, joinStemAndExt, pathItemFromString } from "./path_item";
+import { PathItem } from "./path_item";
 
 
 export let [files, setFiles] = createStore([] as PathItem[]);
@@ -24,12 +24,11 @@ function renameFiles(): void {
     target_files
         .filter(it => it.stem.match(regex()))
         .forEach(async fromItem => {
-            let toItem = Object.assign({}, fromItem);
-
+            let toItem = fromItem.clone();
             toItem.stem = toItem.stem.replace(regExpObj(), renamePattern());
 
-            let fromFull = await asFullPath(fromItem);
-            let toFull = await asFullPath(toItem);
+            let fromFull = await fromItem.asFullPath();
+            let toFull = await toItem.asFullPath();
 
             fs.renameFile(fromFull, toFull);
         })
@@ -42,7 +41,7 @@ function registerFileDropEvent() {
         let payload = ev.payload;
         switch (payload.type) {
             case 'hover': {
-                let files = await Promise.all(payload.paths.map(async it => await pathItemFromString(it)));
+                let files = await Promise.all(payload.paths.map(async it => await PathItem.fromString(it)));
                 setFiles(files);
             } break;
             case 'drop': {
@@ -71,9 +70,9 @@ export default function Renamer(): JSX.Element {
                             <ul>
                                 <li class="dir"><span class='i-pajamas-folder-open'>folder</span><span>{file.dir}</span></li>
                                 <li class="rename">
-                                    <span class='from'>{joinStemAndExt(file.stem, file.ext)}</span>
+                                    <span class='from'>{file.filename}</span>
                                     <span class='arrow i-pajamas-arrow-right'>→</span>
-                                    <span class='to'>{joinStemAndExt(file.stem.replace(regExpObj(), renamePattern()), file.ext)}</span>
+                                    <span class='to'>{file.withStem(file.stem.replace(regExpObj(), renamePattern())).filename}</span>
                                 </li>
                             </ul>
                         </div>
