@@ -1,5 +1,5 @@
 import { JSX } from "solid-js";
 
 export default function HelpPage(): JSX.Element {
-    return (<>HelpPage</>);
+    return (<>HelpPage is not implemented yet.</>);
 }

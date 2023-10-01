@@ -2,6 +2,8 @@
 
 Work in progress
 
+![screenshot](./readme_assets/screenshot.png)
+
 Simple app for: drag-drop files to rename with some regex pattern.
 
 remake of [dropReplacer](https://github.com/sftblw/dropReplacer)
