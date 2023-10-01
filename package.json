@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Simple app for: drag-drop files to rename with some regex pattern.",
   "author": {
-    "name": "sftblw", "email": "ccwpc@hanmail.net"
+    "name": "sftblw",
+    "email": "ccwpc@hanmail.net"
   },
   "private": true,
   "scripts": {
@@ -32,6 +33,7 @@
     "typescript": "^5.0.2",
     "unocss": "^0.55.7",
     "vite": "^4.4.4",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "vite-plugin-top-level-await": "^1.3.1"
   }
 }
