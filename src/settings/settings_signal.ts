@@ -2,7 +2,6 @@ import { debounce } from "@solid-primitives/scheduled";
 import { createSignal, createMemo, Accessor, Setter } from "solid-js";
 import { Path, PathValue } from "tauri-settings/dist/types/dot-notation";
 import settingsManager, { DropRenamerSettingsSchema, settingsDefault } from "./settings_manager";
-import { SetStoreFunction, Store, createStore } from "solid-js/store";
 import { getDotNotation } from "./dot_notation";
 
 export function createSettingsSignal<
@@ -25,8 +24,8 @@ export function createSettingsSignal<
     });
 
     if (debounce_ms > 0) {
-        const debounceValue = debounce((debounced_value: TValue) => {
-            settingsManager.set(key, debounced_value);
+        const debounceValue = debounce(async (debounced_value: TValue) => {
+            await settingsManager.set(key, debounced_value);
             settingsManager.syncCache();
         }, 250);
         createMemo(() => { debounceValue(value()); });

@@ -24,17 +24,27 @@ export class PathItem {
         return clone;
     }
 
-    get filename(): string {
-        return this.ext !== '' ? `${this.stem}.${this.ext}` : this.stem;
-    }
-
-    static async fromString(full_path: string): Promise<PathItem> {
-        let dir = await path.dirname(full_path);
-    
-        let filename = await path.basename(full_path);
+    private static splitFilename(filename: string): [string, string] {
         let dot_pos = filename.lastIndexOf('.');
         let ext = (dot_pos === -1) ? '' : filename.slice(dot_pos + 1);
         let stem = (dot_pos === -1) ? filename : filename.slice(0, dot_pos);
+        return [stem, ext];
+    }
+
+    get filename(): string {
+        return this.ext !== '' ? `${this.stem}.${this.ext}` : this.stem;
+    }
+    set filename(value: string) {
+        let [stem, ext] = PathItem.splitFilename(value);
+        this.stem = stem;
+        this.ext = ext;
+    }
+
+    static async fromString(fullPath: string): Promise<PathItem> {
+        let dir = await path.dirname(fullPath);
+    
+        let filename = await path.basename(fullPath);
+        let [stem, ext] = PathItem.splitFilename(filename);
         
         return new PathItem(dir, stem, ext);
     }
@@ -46,5 +56,12 @@ export class PathItem {
         );
         let resolved = await path.resolve(joined);
         return resolved;
+    }
+
+    async resolved(): Promise<PathItem> {
+        let fullPath = await this.asFullPath();
+        let resolved = await path.resolve(fullPath);
+        let newPathItem = await PathItem.fromString(resolved);
+        return newPathItem;
     }
 }

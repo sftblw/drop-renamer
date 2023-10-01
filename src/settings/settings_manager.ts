@@ -1,4 +1,5 @@
 
+import { fs } from '@tauri-apps/api';
 import { SettingsManager } from 'tauri-settings';
 
 export type DropRenamerSettingsSchema = {
@@ -6,6 +7,11 @@ export type DropRenamerSettingsSchema = {
       lastRegex: string,
       lastRenamePattern: string,
     },
+    renameConf: {
+      includeExt: boolean,
+      includeFullPath: boolean,
+      renameWhenDropped: boolean,
+    }
 }
 
 export const settingsDefault: DropRenamerSettingsSchema =   { // defaults
@@ -13,6 +19,11 @@ export const settingsDefault: DropRenamerSettingsSchema =   { // defaults
     lastRegex: '^(.*)$',
     lastRenamePattern: '$1'
   },
+  renameConf: {
+    includeExt: false,
+    includeFullPath: false,
+    renameWhenDropped: true,
+  }
 };
 
 const settingsManager = new SettingsManager<DropRenamerSettingsSchema>(
@@ -28,7 +39,10 @@ try {
   await settingsManager.initialize();
 } catch (ex: any) {
   console.error('failed to load settings: ', ex);
-  await settingsManager.syncCache();
+  console.error(`log path is ${settingsManager.path}, removing it and re-initializing`);
+  let path = settingsManager.path;
+  await fs.removeFile(path);
+  await settingsManager.initialize();
 }
 
 export default settingsManager;

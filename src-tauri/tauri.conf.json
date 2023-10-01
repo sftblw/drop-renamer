@@ -19,11 +19,13 @@
       },
       "fs": {
         "renameFile": true,
+        "removeFile": true,
         "createDir": true,
         "readDir": true,
         "readFile": true,
         "writeFile": true,
-        "scope": ["$APPCONFIG", "$APPCONFIG/*", "*"]
+        "exists": true,
+        "scope": ["$APPCONFIG", "$APPCONFIG/*", "/**/*"]
       },
       "path": {
         "all": true

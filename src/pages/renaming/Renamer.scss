@@ -19,3 +19,61 @@
 .file-item-none {
     --uno: text-center;
 }
+
+.rename-options {
+    --uno: flex flex-row gap-2 justify-between items-center;
+    ul {
+        --uno: list-none p-0 mu-4;
+        --uno: flex flex-row gap-2 items-center;
+    }
+
+    .common-options { --uno: text-left; }
+    .rename-action { --uno: text-right; }
+
+    label {
+        --uno: p-1;
+        --uno: select-none;
+        --uno: text-size-4;
+        & > * {
+            --uno: p-1;
+        }
+
+    }
+
+    // custom check
+    // https://moderncss.dev/pure-css-custom-checkbox-style/
+    input[type="checkbox"] {
+        appearance: none;
+
+        border: 1px solid $theme-black-1;
+        width: 1em;
+        height: 1em;
+        
+        --uno: text-size-5 border-rd-1;
+        display: inline-grid;
+        place-content: center;
+
+        &::before {
+            content: '';
+            transform: scale(0);
+            background-color: $theme-primary-3;
+            --uno: border-rd-1;
+            width: 0.6em;
+            height: 0.6em;
+        }
+
+        &:checked::before {
+            transform: scale(1);
+        }
+
+        &:checked + .label-content {
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+        }
+    }
+
+    button {
+        --uno: flex flex-row items-center;
+        --uno: p-2;
+    }
+}
