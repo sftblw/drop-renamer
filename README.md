@@ -19,9 +19,10 @@ requires: nodejs, rust (cargo) installed
 
 - [x] rename when files are dropped
 - [x] basic layout & styling
-- [ ] direct options
-  - [ ] include extensions
-  - [ ] rename instantly when dropped
+- [x] direct options (v0.0.1)
+  - [x] include extensions
+  - [x] include fullpath
+  - [x] rename instantly when dropped
 - [ ] rename items
   - [ ] edit before rename
 - [ ] license thing: add MIT license, add dependencies notice
