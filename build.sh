@@ -8,4 +8,4 @@
 
 nvm use
 npm i
-npm run tauri build
+npm run tauri build -- --target x86_64-unknown-linux-gnu
