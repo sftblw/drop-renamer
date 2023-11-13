@@ -1,0 +1,25 @@
+.rename-target-view {
+    --uno: flex flex-col items-center space-y-4;
+    --uno: m-4;
+
+    .dir {
+        --uno: self-center flex flex-col items-center space-y-2;
+
+        .dir-item {
+            --uno: block;
+        }
+    }
+
+    .rename {
+        --uno: self-stretch flex flex-row items-center space-x-4;
+        .from {
+            --uno: flex-1 text-right;
+        }
+        .to {
+            --uno: flex-1 text-left;
+        }
+        // .arrow {
+        //     --uno: m-4;
+        // }
+    }
+}

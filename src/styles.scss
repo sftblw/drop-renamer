@@ -45,3 +45,23 @@ span.icon {
     height: 1em;
     display: inline-block;
 }
+
+.info {
+    border-color: $theme-black-2;
+    --uno: border-2px border-rounded-1 border-solid;
+    --uno: p-1;
+}
+
+.info-error {
+    border-color: $theme-error-1;
+    background-color: $theme-error-bg-1;
+    color: $theme-error-1;
+    --uno: font-bold;
+}
+
+.span-error {
+    border-color: $theme-error-1;
+    background-color: $theme-error-bg-1;
+    color: $theme-error-1;
+    --uno: font-bold p-2;
+}

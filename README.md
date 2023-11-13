@@ -28,4 +28,4 @@ requires: nodejs, rust (cargo) installed
 - [ ] rename items
   - [ ] edit before rename
 - [ ] license thing: add MIT license, add dependencies notice
-- [ ] deploy
+- [x] deploy

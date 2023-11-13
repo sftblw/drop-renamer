@@ -1,17 +1,15 @@
 
 import { fs } from '@tauri-apps/api';
 import { SettingsManager } from 'tauri-settings';
+import { RenameOptions } from './rename_options';
+
 
 export type DropRenamerSettingsSchema = {
     input: {
       lastRegex: string,
       lastRenamePattern: string,
     },
-    renameConf: {
-      includeExt: boolean,
-      includeFullPath: boolean,
-      renameWhenDropped: boolean,
-    }
+    renameConf: RenameOptions
 }
 
 export const settingsDefault: DropRenamerSettingsSchema =   { // defaults

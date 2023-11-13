@@ -14,6 +14,8 @@ export class PathItem {
         this.ext = ext;
     }
 
+    static empty(): PathItem { return new PathItem('', '', ''); }
+
     clone(): PathItem {
         return new PathItem(this.dir, this.stem, this.ext);
     }

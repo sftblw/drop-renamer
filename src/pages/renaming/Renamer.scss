@@ -1,14 +1,6 @@
 @import '../../variables.scss';
 
 .file-item {
-    ul {
-        --uno: list-none p-0 mu-4;
-        --uno: flex flex-col gap-2;
-    }
-    .dir { text-align: center; }
-    .rename {
-        --uno: flex flex-row gap-4 justify-center items-center;
-    }
     &:not(:first-child) {
         border-color: $theme-black-2;
         --uno: border-1px;
