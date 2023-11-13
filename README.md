@@ -14,8 +14,8 @@ started from tauri's `Tauri + Solid + Typescript` template.
 
 requires: nodejs, rust (cargo) installed
 
-1. npm i
-2. npm run tauri dev
+1. pnpm i
+2. pnpm run tauri dev
 
 ## TODO
 
@@ -29,3 +29,4 @@ requires: nodejs, rust (cargo) installed
   - [ ] edit before rename
 - [ ] license thing: add MIT license, add dependencies notice
 - [x] deploy
+- [ ] changelog
