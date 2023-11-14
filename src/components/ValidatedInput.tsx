@@ -41,6 +41,7 @@ export default function ValidatedInput(props: OptionalPatternProps): JSX.Element
 
     return (
         <input
+            id={props.id}
             value={value()}
             onInput={ev => setValue(ev.target.value)}
             class={classList()}

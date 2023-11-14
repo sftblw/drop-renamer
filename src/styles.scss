@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+* {
+    --uno: list-inside;
+}
+
 html {
     color: $theme-black-2;
     --uno: font-sans;
@@ -9,6 +13,7 @@ h1, h2, h3, h4, h5, h6,
 label
 {
     color: $theme-black-1;
+    --uno: pt-1 pb-1;
 }
 
 input {
@@ -64,4 +69,14 @@ span.icon {
     background-color: $theme-error-bg-1;
     color: $theme-error-1;
     --uno: font-bold p-2;
+}
+
+.bordered_content {
+    border-color: $theme-black-2;
+    --uno: border-1px border-rounded-1 border-solid;
+    --uno: p-2;
+}
+
+.content {
+    --uno: mt-2 mb-2;
 }

@@ -3,12 +3,12 @@
     --uno: flex flex-col;
     li {
         --uno: flex flex-col;
-        --uno: mt-2;
+        --uno: mb-2;
     }
 
     label {
         --uno: font-size-5 font-medium;
-        --uno: mt-1 mb-1;
+        --uno: mb-1;
         user-select: none;
     }
 }

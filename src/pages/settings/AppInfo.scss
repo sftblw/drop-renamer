@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.app_info {
+    --uno: rounded-4 mt-8;
+    border-color: $theme-black-3 !important;
+    
+    h1 {
+        --uno: text-xl p-2 m-2 text-center;
+    }
+    .version {
+        border-color: $theme-primary-1;
+        background-color: $theme-primary-2;
+        color: $theme-white-1;
+
+        --uno: px-2 py-1 m-1 rounded-2 inline-block;
+    }
+
+    ul {
+        --uno: flex flex-row justify-center items-center space-x-2 flex-wrap;
+        --uno: list-none;
+        --uno: p-2 m-0;
+        a {
+            --uno: p-2;
+        }
+    }
+    
+}
