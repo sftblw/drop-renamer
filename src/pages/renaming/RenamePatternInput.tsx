@@ -37,7 +37,7 @@ function RenamePatternInput(props: RenamePattern): JSX.Element {
                 <ValidatedInput id="rename_pattern" class={input_classes}
                     value={pattern()}
                     onInput={ (value) => setPattern(value) }
-                    validator={(value) => { return true }}
+                    validator={(_value) => { return true }}
                 />
             </li>
         </ul>

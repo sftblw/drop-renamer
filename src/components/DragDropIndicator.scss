@@ -1,0 +1,20 @@
+@import "../variables.scss";
+
+.drag-drop-indicator {
+    pointer-events: none;
+    --uno: fixed w-full h-full left-0 top-0;
+    --uno: border-0 border-solid box-border;
+
+    border-color: transparent;
+    
+    &.hover {
+        --uno: border-12 border-solid box-border;
+        border-color: rgba($theme-primary-3, 0.5);
+    }
+    
+    transition: all 0.05s ease-in-out;
+
+    &.hover {
+        transition: all 0.05s ease-in-out;
+    }
+}

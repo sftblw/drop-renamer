@@ -1,4 +1,4 @@
-import { JSX, createResource, lazy } from "solid-js";
+import { JSX, createResource } from "solid-js";
 
 import { getName, getTauriVersion, getVersion } from '@tauri-apps/api/app';
 import './AppInfo.scss';

@@ -10,8 +10,16 @@ import { PathItem } from "./path_item";
 import { createSettingsSignal } from "../../settings/settings_signal";
 import RenameTarget, { RenameResult } from "./rename_target";
 import RenameTargetView from "./RenameTargetView";
+import DragDropIndicator from "../../components/DragDropIndicator";
 
+enum DragDropState {
+    Hover,
+    Drop,
+    Cancel,
+    None
+}
 
+let [dragDropState, setDragDropState] = createSignal(DragDropState.None);
 let [filesRaw, setFilesRaw] = createSignal([] as string[]);
 let [renameTargets, setRenameTargets] = createSignal([] as RenameTarget[]);
 
@@ -78,14 +86,17 @@ export default function Renamer(): JSX.Element {
             switch (payload.type) {
                 case 'hover': {
                     setFilesRaw(payload.paths);
+                    setDragDropState(DragDropState.Hover);
                 } break;
                 case 'drop': {
                     if (untrack(() => optionsVal.renameWhenDropped)) {
                         renameFiles(true);
                     }
+                    setDragDropState(DragDropState.Drop);
                 } break;
                 case 'cancel': {
                     setFilesRaw([]);
+                    setDragDropState(DragDropState.Cancel);
                 } break;
             }
         });
@@ -166,6 +177,7 @@ export default function Renamer(): JSX.Element {
 
     return (
         <>
+            <DragDropIndicator hover={dragDropState() == DragDropState.Hover} />
             <Show when={errorMsg().length > 0}>
                 <div class="info info-error">{errorMsg()}</div>
             </Show>
