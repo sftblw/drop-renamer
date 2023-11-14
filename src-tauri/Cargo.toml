@@ -1,6 +1,6 @@
 [package]
 name = "drop-renamer"
-version = "0.0.3"
+version = "0.0.4"
 description = "Simple app for: drag-drop files to rename with some regex pattern."
 authors = ["sftblw@forcs.com"]
 license = ""
